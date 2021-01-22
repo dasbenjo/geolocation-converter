@@ -6,7 +6,23 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Geolocation Converter für t-s und t-v Diagramme | Modulprojekt Physikdidaktik</title>
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="assets/favicon/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="assets/favicon/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="assets/favicon/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="assets/favicon/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="assets/favicon/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+		<link rel="manifest" href="assets/favicon/manifest.json">
+		<meta name="msapplication-TileColor" content="#bd5d38">
+		<meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
+		<meta name="theme-color" content="#bd5d38">
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -15,9 +31,25 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
 		<script>
+		var tswert1,
+			tswert2,
+			tswert3,
+			tswert4,
+			tswert5;
+		var tvwert,
+			tvwert1,
+			tvwert2,
+			tvwert3,
+			tvwert4,
+			tvwert5;
 		function rechnen() {
-		document.getElementById("results").innerHTML = "<h2>Ergebnisse</h2>";
+		document.getElementById("results").innerHTML = '<h2>Ergebnisse</h2>';
 		var arraywert;
+		var time1 = 10,
+			time2 = 10,
+			time3 = 10,
+			time4 = 10,
+			time5 = 10;
 		var wert1,
 			lat1,
 			lon1,
@@ -35,18 +67,13 @@
 			lon5,
 			wert6,
 			lat6,
-			lon6,
-			wert7,
-			lat7,
-			lon7,
-			wert8,
-			lat8,
-			lon8,
-			wert9,
-			lat9,
-			lon9;
+			lon6;
 			if (x < 3) {
 				wert1 = $('#LatLong1').val();
+				time1 = $('#Time2').val();
+				if(!time1){
+				time1 = 10;
+				}
 				arraywert = wert1.split(', ')
 				lat1 = arraywert[0];
 				lon1 = arraywert[1];
@@ -54,14 +81,26 @@
 				arraywert = wert2.split(', ')
 				lat2 = arraywert[0];
 				lon2 = arraywert[1];
-				console.log(lat1,lon1,lat2,lon2);
-				getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2,'1-2');
+				getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2,'1-2',time1);
+				tswert1 = tswert;
+				tvwert1 = tvwert;
+				zeichnegraph(time1,tswert1,0,0,0,0,0,0,0,0,x);
+				zeichnegraph2(time1,tvwert1,0,0,0,0,0,0,0,0,x);
+				
 			} else if (x < 4) {
 				wert1 = $('#LatLong1').val();
+				time1 = $('#Time2').val();
+				if(!time1){
+				time1 = 10;
+				}
 				arraywert = wert1.split(', ')
 				lat1 = arraywert[0];
 				lon1 = arraywert[1];
 				wert2 = $('#LatLong2').val();
+				time2 = $('#Time3').val();
+				if(!time2){
+				time2 = 10;
+				}
 				arraywert = wert2.split(', ')
 				lat2 = arraywert[0];
 				lon2 = arraywert[1];
@@ -69,18 +108,36 @@
 				arraywert = wert3.split(', ')
 				lat3 = arraywert[0];
 				lon3 = arraywert[1];
-				getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2,'1-2');
-				getDistanceFromLatLonInKm(lat2,lon2,lat3,lon3,'2-3');
+				getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2,'1-2',time1);
+				tswert1 = tswert;
+				tvwert1 = tvwert;
+				getDistanceFromLatLonInKm(lat2,lon2,lat3,lon3,'2-3',time2);
+				tswert2 = tswert;
+				tvwert2 = tvwert;
+				zeichnegraph(time1,tswert1,time2,tswert2,0,0,0,0,0,0,x);
+				zeichnegraph2(time1,tvwert1,time2,tvwert2,0,0,0,0,0,0,x);
 			} else if (x < 5) {
 				wert1 = $('#LatLong1').val();
+				time1 = $('#Time2').val();
+				if(!time1){
+				time1 = 10;
+				}
 				arraywert = wert1.split(', ')
 				lat1 = arraywert[0];
 				lon1 = arraywert[1];
 				wert2 = $('#LatLong2').val();
+				time2 = $('#Time3').val();
+				if(!time2){
+				time2 = 10;
+				}
 				arraywert = wert2.split(', ')
 				lat2 = arraywert[0];
 				lon2 = arraywert[1];
 				wert3 = $('#LatLong3').val();
+				time3 = $('#Time4').val();
+				if(!time3){
+				time3 = 10;
+				}
 				arraywert = wert3.split(', ')
 				lat3 = arraywert[0];
 				lon3 = arraywert[1];
@@ -88,23 +145,47 @@
 				arraywert = wert4.split(', ')
 				lat4 = arraywert[0];
 				lon4 = arraywert[1];
-				getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2,'1-2');
-				getDistanceFromLatLonInKm(lat2,lon2,lat3,lon3,'2-3');
-				getDistanceFromLatLonInKm(lat3,lon3,lat4,lon4,'3-4');
+				getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2,'1-2',time1);
+				tswert1 = tswert;
+				tvwert1 = tvwert;
+				getDistanceFromLatLonInKm(lat2,lon2,lat3,lon3,'2-3',time2);
+				tswert2 = tswert;
+				tvwert2 = tvwert;
+				getDistanceFromLatLonInKm(lat3,lon3,lat4,lon4,'3-4',time3);
+				tswert3 = tswert;
+				tvwert3 = tvwert;
+				zeichnegraph(time1,tswert1,time2,tswert2,time3,tswert3,0,0,0,0,x);
+				zeichnegraph2(time1,tvwert1,time2,tvwert2,time3,tvwert3,0,0,0,0,x);
 			} else if (x < 6) {
 				wert1 = $('#LatLong1').val();
+				time1 = $('#Time2').val();
+				if(!time1){
+				time1 = 10;
+				}
 				arraywert = wert1.split(', ')
 				lat1 = arraywert[0];
 				lon1 = arraywert[1];
 				wert2 = $('#LatLong2').val();
+				time2 = $('#Time3').val();
+				if(!time2){
+				time2 = 10;
+				}
 				arraywert = wert2.split(', ')
 				lat2 = arraywert[0];
 				lon2 = arraywert[1];
 				wert3 = $('#LatLong3').val();
+				time3 = $('#Time4').val();
+				if(!time3){
+				time3 = 10;
+				}
 				arraywert = wert3.split(', ')
 				lat3 = arraywert[0];
 				lon3 = arraywert[1];
 				wert4 = $('#LatLong4').val();
+				time4 = $('#Time5').val();
+				if(!time4){
+				time4 = 10;
+				}
 				arraywert = wert3.split(', ')
 				lat4 = arraywert[0];
 				lon4 = arraywert[1];
@@ -112,28 +193,58 @@
 				arraywert = wert5.split(', ')
 				lat5 = arraywert[0];
 				lon5 = arraywert[1];
-				getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2,'1-2');
-				getDistanceFromLatLonInKm(lat2,lon2,lat3,lon3,'2-3');
-				getDistanceFromLatLonInKm(lat3,lon3,lat4,lon4,'3-4');
-				getDistanceFromLatLonInKm(lat4,lon4,lat5,lon5,'4-5');
+				getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2,'1-2',time1);
+				tswert1 = tswert;
+				tvwert1 = tvwert;
+				getDistanceFromLatLonInKm(lat2,lon2,lat3,lon3,'2-3',time2);
+				tswert2 = tswert;
+				tvwert2 = tvwert;
+				getDistanceFromLatLonInKm(lat3,lon3,lat4,lon4,'3-4',time3);
+				tswert3 = tswert;
+				tvwert3 = tvwert;
+				getDistanceFromLatLonInKm(lat4,lon4,lat5,lon5,'4-5',time4);
+				tswert4 = tswert;
+				tvwert4 = tvwert;
+				zeichnegraph(time1,tswert1,time2,tswert2,time3,tswert3,time4,tswert4,0,0,x);
+				zeichnegraph2(time1,tvwert1,time2,tvwert2,time3,tvwert3,time4,tvwert4,0,0,x);
 			} else {
 				wert1 = $('#LatLong1').val();
+				time1 = $('#Time2').val();
+				if(!time1){
+				time1 = 10;
+				}
 				arraywert = wert1.split(', ')
 				lat1 = arraywert[0];
 				lon1 = arraywert[1];
 				wert2 = $('#LatLong2').val();
+				time2 = $('#Time3').val();
+				if(!time2){
+				time2 = 10;
+				}
 				arraywert = wert2.split(', ')
 				lat2 = arraywert[0];
 				lon2 = arraywert[1];
 				wert3 = $('#LatLong3').val();
+				time3 = $('#Time4').val();
+				if(!time3){
+				time3 = 10;
+				}
 				arraywert = wert3.split(', ')
 				lat3 = arraywert[0];
 				lon3 = arraywert[1];
 				wert4 = $('#LatLong4').val();
+				time4 = $('#Time5').val();
+				if(!time4){
+				time4 = 10;
+				}
 				arraywert = wert3.split(', ')
 				lat4 = arraywert[0];
 				lon4 = arraywert[1];
 				wert5 = $('#LatLong5').val();
+				time5 = $('#Time6').val();
+				if(!time5){
+				time5 = 10;
+				}
 				arraywert = wert5.split(', ')
 				lat5 = arraywert[0];
 				lon5 = arraywert[1];
@@ -141,18 +252,31 @@
 				arraywert = wert6.split(', ')
 				lat6 = arraywert[0];
 				lon6 = arraywert[1];
-				getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2,'1-2');
-				getDistanceFromLatLonInKm(lat2,lon2,lat3,lon3,'2-3');
-				getDistanceFromLatLonInKm(lat3,lon3,lat4,lon4,'3-4');
-				getDistanceFromLatLonInKm(lat4,lon4,lat5,lon5,'4-5');
-				getDistanceFromLatLonInKm(lat5,lon5,lat6,lon6,'5-6');
+				getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2,'1-2',time1);
+				tswert1 = tswert;
+				tvwert1 = tvwert;
+				getDistanceFromLatLonInKm(lat2,lon2,lat3,lon3,'2-3',time2);
+				tswert2 = tswert;
+				tvwert2 = tvwert;
+				getDistanceFromLatLonInKm(lat3,lon3,lat4,lon4,'3-4',time3);
+				tswert3 = tswert;
+				tvwert3 = tvwert;
+				getDistanceFromLatLonInKm(lat4,lon4,lat5,lon5,'4-5',time4);
+				tswert4 = tswert;
+				tvwert4 = tvwert;
+				getDistanceFromLatLonInKm(lat5,lon5,lat6,lon6,'5-6',time5);
+				tswert5 = tswert;
+				tvwert5 = tvwert;
+				zeichnegraph(time1,tswert1,time2,tswert2,time3,tswert3,time4,tswert4,time5,tswert5,x);
+				zeichnegraph2(time1,tvwert1,time2,tvwert2,time3,tvwert3,time4,tvwert4,time5,tvwert5,x);
 			}
-		return;
-		
+			$("html, body").animate({ scrollTop: $('#resultsdiv').offset().top }, 750);
+		return 0;
+		 
 		}
 			
 		
-		function getDistanceFromLatLonInKm(xlat1,xlon1,xlat2,xlon2,streckennr) {
+		function getDistanceFromLatLonInKm(xlat1,xlon1,xlat2,xlon2,streckennr,time) {
 		var R = 6371; // Radius of the earth in km
 		var dLat = deg2rad(xlat2-xlat1);  // deg2rad below
 		var dLon = deg2rad(xlon2-xlon1); 
@@ -164,19 +288,124 @@
 		var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
 		var d = R * c; // Distance in km
 		var seite = (xlat2-xlat1) * 40032 / 360;
-		seite = Math.abs(seite).toFixed(1);
+		seite = seite.toFixed(1);
+		tswert = seite;
+		console.log(tswert);
 		var seiteb = Math.sqrt((Math.pow(d.toFixed(1),2) - Math.pow(seite,2)));
 		seiteb = Math.abs(seiteb).toFixed(1);
-		console.log(seite);
-		console.log(d);
-		console.log(a);
-		console.log(c);
-		$('#results').append('<p>STRECKE ' + streckennr + ':<br>Luftlinie: ' + d.toFixed(1) + ' km <br>Strecke Nord-Süd: ' + seite + ' km <br>Strecke West-Ost: ' + seiteb + ' km</p>');
-		return;
+		tvwert = Number(seiteb);
+		if ( xlon1 > xlon2 ) {
+		tvwert = 0 - tvwert;
+		}
+		tvwert = tvwert * 1000 / time;
+		if (d.toFixed(1) == 'NaN') {
+		$('#results').append('<p>Die Koordinaten der Strecke ' + streckennr + ' sind fehlerhaft!</p>');
+		}
+		else {
+		$('#results').append('<p><b>STRECKE ' + streckennr + ':</b><br>Luftlinie: ' + d.toFixed(1) + ' km <br>Strecke Nord-Süd: ' + seite + ' km <br>Strecke West-Ost: ' + seiteb + ' km mit der Geschwindigkeit ' + tvwert.toFixed(1) + ' m/s</p>');
+		}
+		return 0;
 		}
 
 		function deg2rad(deg) {
 		return deg * (Math.PI/180)
+		}
+		
+		function zeichnegraph(xc1,yc1,xc2,yc2,xc3,yc3,xc4,yc4,xc5,yc5,xwert) {
+		var axc2 = Number(xc1) + Number(xc2);
+		var axc3 = Number(xc1) + Number(xc2) + Number(xc3);
+		var axc4 = Number(xc1) + Number(xc2) + Number(xc3) + Number(xc4);
+		var axc5 = Number(xc1) + Number(xc2) + Number(xc3) + Number(xc4) + Number(xc5);
+		var ayc1 = Number(yc1) * 1000;
+		var ayc2 = (Number(yc1) + Number(yc2)) * 1000;
+		var ayc3 = (Number(yc1) + Number(yc2) + Number(yc3)) * 1000;
+		var ayc4 = (Number(yc1) + Number(yc2) + Number(yc3) + Number(yc4)) * 1000;
+		var ayc5 = (Number(yc1) + Number(yc2) + Number(yc3) + Number(yc4) + Number(yc5)) * 1000;
+		
+		var xwerte = [0, xc1, axc2, axc3, axc4, axc5];
+		var ywerte = [0, ayc1, ayc2, ayc3, ayc4, ayc5];
+		console.log(xwert);
+		console.log(ayc2);
+		var daten = [];
+		for (var i = 0; i < xwert; i++) {
+			  var obj = { x: xwerte[i], y: ywerte[i] };
+			  daten.push(obj);
+			}
+		var chartData = new Chart(document.getElementById("ergChart"), {
+			   type: 'scatter',
+			   data: {
+				  datasets: [{
+					 label: "t-s Diagramm (Nord-Süd-Richtung) [m / s]",
+					 data: daten,
+					 fill: false,
+					 tension: 0,
+					 showLine: true,
+					 borderColor: "rgba(0,0,0,0.8)",
+					 backgroundColor: "rgba(0,0,0,0.8)",
+					 pointBorderColor: "rgba(0,0,0,0.8)",
+					 pointBackgroundColor: "rgba(0,0,0,0.8)",
+					 pointBorderWidth: "1"
+				  }]
+			   },
+			   options: {
+					legend: {
+						labels: {
+						fontColor: 'rgba(0,0,0,0.8)',
+						fontSize: 18
+								}
+							},
+				  responsive: true  
+			   }
+			});
+			
+		}
+		function zeichnegraph2(xc1,yc1,xc2,yc2,xc3,yc3,xc4,yc4,xc5,yc5,xwert) {
+		var axc2 = Number(xc1) + Number(xc2);
+		var axc3 = Number(xc1) + Number(xc2) + Number(xc3);
+		var axc4 = Number(xc1) + Number(xc2) + Number(xc3) + Number(xc4);
+		var axc5 = Number(xc1) + Number(xc2) + Number(xc3) + Number(xc4) + Number(xc5);
+		var ayc2 = Number(yc2);
+		var ayc3 = Number(yc3);
+		var ayc4 = Number(yc4);
+		var ayc5 = Number(yc5);
+		
+		var xwerte = [0, xc1, axc2, axc3, axc4, axc5];
+		var ywerte = [0, yc1, ayc2, ayc3, ayc4, ayc5];
+		console.log(xwert);
+		console.log(ayc2);
+		var daten = [];
+		for (var i = 0; i < xwert; i++) {
+			  var obj = { x: xwerte[i], y: ywerte[i] };
+			  daten.push(obj);
+			}
+		var chartData = new Chart(document.getElementById("ergChart2"), {
+			   type: 'scatter',
+			   data: {
+				  datasets: [{
+					 label: "t-v Diagramm (West-Ost-Richtung) [m/s / s]",
+					 data: daten,
+					 fill: false,
+					 tension: 0,
+					 steppedLine: 'after',
+					 showLine: true,
+					 borderColor: "rgba(0,0,0,0.8)",
+					 backgroundColor: "rgba(0,0,0,0.8)",
+					 pointBorderColor: "rgba(0,0,0,0.8)",
+					 pointBackgroundColor: "rgba(0,0,0,0.8)",
+					 pointBorderWidth: "1"
+				  }]
+			   },
+			   options: {
+					legend: {
+						labels: {
+						fontColor: 'rgba(0,0,0,0.8)',
+						fontSize: 18
+								}
+							},
+				  responsive: true  
+			   }
+			});
+			
 		}
 		
 		</script>
@@ -197,17 +426,17 @@
             </div>
         </nav>
         <!-- Page Content-->
-        <div class="container-fluid p-0">
+        <div class="container-fluid p-0" style="background-image: url('assets/img/bg.png');background-repeat: no-repeat;">
 
             <!-- Converter-->
             <section class="resume-section" id="conv">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Geolocation Converter für t-s und t-v Diagramme</h2>
+                    <h2 class="mb-3">Geolocation Converter für t-s und t-v Diagramme</h2>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Modulprojekt Physikdidaktik</h3>
+
                             <div class="subheading mb-3">Anleitung</div>
-                            <p>Dieser Converter rechnet jeweils ein Paar Breiten- und Längengrad Koordinaten um in die entsprechende Luftlinie und die Nord-Süd- bzw. West-Ost-Komponente. Mit den Ergebnissen können t-s und t-v-Diagramme in Abhängigkeit der Himmelsrichtung erstellt werden.</p><p>Öffnet z.B. <a href="https://google.de/maps" target="_blank">Google Maps</a> und erstellt eine Route. Anschließend macht ihr am PC einen Rechtsklick auf jeden Punkt und klickt oben im Kontextmenü auf die Breiten- und Längengrad Angabe. Ihr müsstet die Rückmeldung bekommen, dass die Angaben kopiert wurden. Fügt diese Werte nun bei Koordinate 1 ein. Wählt den nächsten Punkt aus und macht entsprechend weiter bis ihr <span id="maxvariabel"></span> Punkte habt.</p><p>Anschließend klickt ihr auf Berechnen und lasst euch entsprechend die einzelnen Werte für die Entfernung für die Himmelsrichtungen ausrechnen. Mit diesen könnt ihr relativ einfach ein entsprechendes t-s oder t-v-Diagramm anfertigen.</p>
+                            <p>Öffnet z.B. <a href="https://google.de/maps" target="_blank">Google Maps</a> und erstellt eine Route. Anschließend macht ihr am PC einen Rechtsklick auf den ersten Punkt und klickt oben im Kontextmenü auf die Breiten- und Längengrad Angabe. Ihr müsstet die Rückmeldung bekommen, dass die Angaben kopiert wurden. Fügt diese Werte nun bei Koordinate 1 ein. Wählt den nächsten Punkt aus und macht entsprechend weiter bis ihr minmal 2 oder maximal 6 Punkte habt.</p><p>Anschließend klickt ihr auf Berechnen und lasst euch entsprechend die einzelnen Werte für die Entfernung für die Himmelsrichtungen ausrechnen. Mit diesen könnt ihr relativ einfach ein entsprechendes t-s oder t-v-Diagramm anfertigen.</p>
                         </div>
                     </div>
                     <div class="mb-5">
@@ -215,18 +444,25 @@
 							<div class="container-latlong">
 								<button class="btn btn-primary mb-5 add_form_field">Weitere Koordinate hinzufügen &nbsp; <span style="font-size:16px; font-weight:bold;">+ </span></button>
 								<div>
-									<div class="form-group row" id="formconv1"><label for="LatLong1" class="col-sm-3 col-form-label col-form-label-lg">Koordinate 1</label><div class="col-sm-7"><input type="text" class="form-control form-control-lg" id="LatLong1" placeholder="Bsp.: 53.13430292496812, 8.239024619593309"></div></div>
+									<div class="form-group row" style="margin-bottom:40px;" id="formconv1"><label for="LatLong1" class="col-sm-3 col-form-label col-form-label-lg">Koordinate 1</label><div class="col-sm-7"><input type="text" class="form-control form-control-lg" id="LatLong1" placeholder="Bsp.: 53.13430292496812, 8.239024619593309"></div></div>
 								</div>
 								<div>
-									<div class="form-group row" id="formconv2"><label for="LatLong2" class="col-sm-3 col-form-label col-form-label-lg">Koordinate 2</label><div class="col-sm-7"><input type="text" class="form-control form-control-lg" id="LatLong2" placeholder="Bsp.: 53.13430292496812, 8.239024619593309"></div></div>
+									<div class="form-group row" style="margin-bottom:40px;" id="formTime1"><label for="Time2" class="col-sm-4 col-form-label col-form-label-lg">Zeit für Strecke 1-2</label><div class="col-sm-4"><input type="text" class="form-control form-control-lg" id="Time2" placeholder="in Sekunden, z.B. 300"></div></div>
+								</div>
+								<div>
+									<div class="form-group row" style="margin-bottom:40px;" id="formconv2"><label for="LatLong2" class="col-sm-3 col-form-label col-form-label-lg">Koordinate 2</label><div class="col-sm-7"><input type="text" class="form-control form-control-lg" id="LatLong2" placeholder="Bsp.: 53.13430292496812, 8.239024619593309"></div></div>
 								</div>
 								
 							</div>
-							<div class="text-right">
-								<button class="btn btn-info mt-5" onClick="rechnen()">Berechnen</button>
+							<div class="row">
+								<div class="col-12 col-sm-8 col-lg-9"></div>
+								<a class="text-decoration-none col-12 col-sm-4 col-lg-3" href="#" onClick="rechnen()"><div class="bg-info rounded p-3 text-center"><h5 style="color:white;">Berechnen</h5></div></a>
 							</div>
 						</form>   
-						<div id="results"></div>
+						<div class="row" style="padding-top:80px;margin-bottom:150px;" id="resultsdiv">
+							<div class="col-12 col-md-6" id="results"></div>
+							<div class="col-12 col-md-6"><canvas id="ergChart"></canvas><br><canvas id="ergChart2"></canvas></div>
+						</div>
                     </div>
                 </div>
             </section>
@@ -236,11 +472,12 @@
                 <div class="resume-section-content">
                     <div class="subheading mb-5">
                         Entstanden als Teil eines Modulprojekts in der Physikdidaktik <br>
-                        <a href="mailto:name@email.com">blablabla@nerdworking.de</a>
+                        Verwendete Software und Funktionen: <a href="https://chartjs.org/">chart.js</a>, <a href="https://jquery.com/">jQuery</a>, <a href="https://getbootstrap.com/">Bootstrap Framework</a> sowie die <a href="https://en.wikipedia.org/wiki/Haversine_formula">Haversine Formel</a>
                     </div>
                     <p class="lead mb-5">Dieser Converter rechnet jeweils ein Paar Breiten- und Längengrad Koordinaten um in die entsprechende Luftlinie und die Nord-Süd- bzw. West-Ost-Komponente. Mit den Ergebnissen können t-s und t-v-Diagramme in Abhängigkeit der Himmelsrichtung erstellt werden.</p>
-
+					<img class="img-fluid" src="assets/img/karte.png" alt="Karte"/>
                 </div>
+				
             </section>
         </div>
         <!-- Bootstrap core JS-->
@@ -248,6 +485,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Third party plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
 		<!-- Script für weitere Koordinaten-->
@@ -255,7 +493,6 @@
 		var x = 2;
 		$(document).ready(function() {
 			var max_fields      = 6;
-			document.getElementById("maxvariabel").innerHTML = max_fields;
 			var wrapper         = $(".container-latlong");
 			var add_button      = $(".add_form_field");
 		 
@@ -263,7 +500,7 @@
 				e.preventDefault();
 				if(x < max_fields){
 					x++;
-					$(wrapper).append('<div><div class="form-group row" id="formconv' + x + '"><label for="LatLong' + x + '" class="col-sm-3 col-form-label col-form-label-lg">Koordinate ' + x + '</label><div class="col-sm-7"><input type="text" class="form-control form-control-lg" id="LatLong' + x + '" placeholder="Bsp.: 53.13430292496812, 8.239024619593309"></div></div><a href="#" class="delete">Löschen</a></div>'); //add input box
+					$(wrapper).append('<div><div><div class="form-group row" style="margin-bottom:40px;" id="formTime' + x + '"><label for="Time' + x + '" class="col-sm-4 col-form-label col-form-label-lg">Zeit für Strecke ' + (x-1) + '-' + x + '</label><div class="col-sm-4"><input type="text" class="form-control form-control-lg" id="Time' + x + '" placeholder="in Sekunden, z.B. 300"></div></div></div><div class="form-group row" id="formconv' + x + '"><label for="LatLong' + x + '" class="col-sm-3 col-form-label col-form-label-lg">Koordinate ' + x + '</label><div class="col-sm-7"><input type="text" class="form-control form-control-lg" id="LatLong' + x + '" placeholder="Bsp.: 53.13430292496812, 8.239024619593309"></div></div><a href="#" class="delete">Löschen</a></div>'); //add input box
 				}
 		  else
 		  {
