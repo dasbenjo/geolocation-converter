@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Geolocation Converter für t-s und t-v Diagramme | Modulprojekt Physikdidaktik</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+		<script>
+		function rechnen() {
+		document.getElementById("results").innerHTML = "<h2>Ergebnisse</h2>";
+		var arraywert;
+		var wert1,
+			lat1,
+			lon1,
+			wert2,
+			lat2,
+			lon2,
+			wert3,
+			lat3,
+			lon3,
+			wert4,
+			lat4,
+			lon4,
+			wert5,
+			lat5,
+			lon5,
+			wert6,
+			lat6,
+			lon6,
+			wert7,
+			lat7,
+			lon7,
+			wert8,
+			lat8,
+			lon8,
+			wert9,
+			lat9,
+			lon9;
+			if (x < 3) {
+				wert1 = $('#LatLong1').val();
+				arraywert = wert1.split(', ')
+				lat1 = arraywert[0];
+				lon1 = arraywert[1];
+				wert2 = $('#LatLong2').val();
+				arraywert = wert2.split(', ')
+				lat2 = arraywert[0];
+				lon2 = arraywert[1];
+				console.log(lat1,lon1,lat2,lon2);
+				getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2,'1-2');
+			} else if (x < 4) {
+				wert1 = $('#LatLong1').val();
+				arraywert = wert1.split(', ')
+				lat1 = arraywert[0];
+				lon1 = arraywert[1];
+				wert2 = $('#LatLong2').val();
+				arraywert = wert2.split(', ')
+				lat2 = arraywert[0];
+				lon2 = arraywert[1];
+				wert3 = $('#LatLong3').val();
+				arraywert = wert3.split(', ')
+				lat3 = arraywert[0];
+				lon3 = arraywert[1];
+				getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2,'1-2');
+				getDistanceFromLatLonInKm(lat2,lon2,lat3,lon3,'2-3');
+			} else if (x < 5) {
+				wert1 = $('#LatLong1').val();
+				arraywert = wert1.split(', ')
+				lat1 = arraywert[0];
+				lon1 = arraywert[1];
+				wert2 = $('#LatLong2').val();
+				arraywert = wert2.split(', ')
+				lat2 = arraywert[0];
+				lon2 = arraywert[1];
+				wert3 = $('#LatLong3').val();
+				arraywert = wert3.split(', ')
+				lat3 = arraywert[0];
+				lon3 = arraywert[1];
+				wert4 = $('#LatLong4').val();
+				arraywert = wert4.split(', ')
+				lat4 = arraywert[0];
+				lon4 = arraywert[1];
+				getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2,'1-2');
+				getDistanceFromLatLonInKm(lat2,lon2,lat3,lon3,'2-3');
+				getDistanceFromLatLonInKm(lat3,lon3,lat4,lon4,'3-4');
+			} else if (x < 6) {
+				wert1 = $('#LatLong1').val();
+				arraywert = wert1.split(', ')
+				lat1 = arraywert[0];
+				lon1 = arraywert[1];
+				wert2 = $('#LatLong2').val();
+				arraywert = wert2.split(', ')
+				lat2 = arraywert[0];
+				lon2 = arraywert[1];
+				wert3 = $('#LatLong3').val();
+				arraywert = wert3.split(', ')
+				lat3 = arraywert[0];
+				lon3 = arraywert[1];
+				wert4 = $('#LatLong4').val();
+				arraywert = wert3.split(', ')
+				lat4 = arraywert[0];
+				lon4 = arraywert[1];
+				wert5 = $('#LatLong5').val();
+				arraywert = wert5.split(', ')
+				lat5 = arraywert[0];
+				lon5 = arraywert[1];
+				getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2,'1-2');
+				getDistanceFromLatLonInKm(lat2,lon2,lat3,lon3,'2-3');
+				getDistanceFromLatLonInKm(lat3,lon3,lat4,lon4,'3-4');
+				getDistanceFromLatLonInKm(lat4,lon4,lat5,lon5,'4-5');
+			} else {
+				wert1 = $('#LatLong1').val();
+				arraywert = wert1.split(', ')
+				lat1 = arraywert[0];
+				lon1 = arraywert[1];
+				wert2 = $('#LatLong2').val();
+				arraywert = wert2.split(', ')
+				lat2 = arraywert[0];
+				lon2 = arraywert[1];
+				wert3 = $('#LatLong3').val();
+				arraywert = wert3.split(', ')
+				lat3 = arraywert[0];
+				lon3 = arraywert[1];
+				wert4 = $('#LatLong4').val();
+				arraywert = wert3.split(', ')
+				lat4 = arraywert[0];
+				lon4 = arraywert[1];
+				wert5 = $('#LatLong5').val();
+				arraywert = wert5.split(', ')
+				lat5 = arraywert[0];
+				lon5 = arraywert[1];
+				wert6 = $('#LatLong6').val();
+				arraywert = wert6.split(', ')
+				lat6 = arraywert[0];
+				lon6 = arraywert[1];
+				getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2,'1-2');
+				getDistanceFromLatLonInKm(lat2,lon2,lat3,lon3,'2-3');
+				getDistanceFromLatLonInKm(lat3,lon3,lat4,lon4,'3-4');
+				getDistanceFromLatLonInKm(lat4,lon4,lat5,lon5,'4-5');
+				getDistanceFromLatLonInKm(lat5,lon5,lat6,lon6,'5-6');
+			}
+		return;
+		
+		}
+			
+		
+		function getDistanceFromLatLonInKm(xlat1,xlon1,xlat2,xlon2,streckennr) {
+		var R = 6371; // Radius of the earth in km
+		var dLat = deg2rad(xlat2-xlat1);  // deg2rad below
+		var dLon = deg2rad(xlon2-xlon1); 
+		var a = 
+			Math.sin(dLat/2) * Math.sin(dLat/2) +
+			Math.cos(deg2rad(xlat1)) * Math.cos(deg2rad(xlat2)) * 
+			Math.sin(dLon/2) * Math.sin(dLon/2)
+			; 
+		var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+		var d = R * c; // Distance in km
+		var seite = (xlat2-xlat1) * 40032 / 360;
+		seite = Math.abs(seite).toFixed(1);
+		var seiteb = Math.sqrt((Math.pow(d.toFixed(1),2) - Math.pow(seite,2)));
+		seiteb = Math.abs(seiteb).toFixed(1);
+		console.log(seite);
+		console.log(d);
+		console.log(a);
+		console.log(c);
+		$('#results').append('<p>STRECKE ' + streckennr + ':<br>Luftlinie: ' + d.toFixed(1) + ' km <br>Strecke Nord-Süd: ' + seite + ' km <br>Strecke West-Ost: ' + seiteb + ' km</p>');
+		return;
+		}
+
+		function deg2rad(deg) {
+		return deg * (Math.PI/180)
+		}
+		
+		</script>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <span class="d-block d-lg-none">Geolocation Converter</span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/location.png" alt="Logo" /></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#conv">Converter</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Page Content-->
+        <div class="container-fluid p-0">
+
+            <!-- Converter-->
+            <section class="resume-section" id="conv">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Geolocation Converter für t-s und t-v Diagramme</h2>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Modulprojekt Physikdidaktik</h3>
+                            <div class="subheading mb-3">Anleitung</div>
+                            <p>Dieser Converter rechnet jeweils ein Paar Breiten- und Längengrad Koordinaten um in die entsprechende Luftlinie und die Nord-Süd- bzw. West-Ost-Komponente. Mit den Ergebnissen können t-s und t-v-Diagramme in Abhängigkeit der Himmelsrichtung erstellt werden.</p><p>Öffnet z.B. <a href="https://google.de/maps" target="_blank">Google Maps</a> und erstellt eine Route. Anschließend macht ihr am PC einen Rechtsklick auf jeden Punkt und klickt oben im Kontextmenü auf die Breiten- und Längengrad Angabe. Ihr müsstet die Rückmeldung bekommen, dass die Angaben kopiert wurden. Fügt diese Werte nun bei Koordinate 1 ein. Wählt den nächsten Punkt aus und macht entsprechend weiter bis ihr <span id="maxvariabel"></span> Punkte habt.</p><p>Anschließend klickt ihr auf Berechnen und lasst euch entsprechend die einzelnen Werte für die Entfernung für die Himmelsrichtungen ausrechnen. Mit diesen könnt ihr relativ einfach ein entsprechendes t-s oder t-v-Diagramm anfertigen.</p>
+                        </div>
+                    </div>
+                    <div class="mb-5">
+						<form>
+							<div class="container-latlong">
+								<button class="btn btn-primary mb-5 add_form_field">Weitere Koordinate hinzufügen &nbsp; <span style="font-size:16px; font-weight:bold;">+ </span></button>
+								<div>
+									<div class="form-group row" id="formconv1"><label for="LatLong1" class="col-sm-3 col-form-label col-form-label-lg">Koordinate 1</label><div class="col-sm-7"><input type="text" class="form-control form-control-lg" id="LatLong1" placeholder="Bsp.: 53.13430292496812, 8.239024619593309"></div></div>
+								</div>
+								<div>
+									<div class="form-group row" id="formconv2"><label for="LatLong2" class="col-sm-3 col-form-label col-form-label-lg">Koordinate 2</label><div class="col-sm-7"><input type="text" class="form-control form-control-lg" id="LatLong2" placeholder="Bsp.: 53.13430292496812, 8.239024619593309"></div></div>
+								</div>
+								
+							</div>
+							<div class="text-right">
+								<button class="btn btn-info mt-5" onClick="rechnen()">Berechnen</button>
+							</div>
+						</form>   
+						<div id="results"></div>
+                    </div>
+                </div>
+            </section>
+            <hr class="m-0" />
+                        <!-- About-->
+            <section class="resume-section" id="about">
+                <div class="resume-section-content">
+                    <div class="subheading mb-5">
+                        Entstanden als Teil eines Modulprojekts in der Physikdidaktik <br>
+                        <a href="mailto:name@email.com">blablabla@nerdworking.de</a>
+                    </div>
+                    <p class="lead mb-5">Dieser Converter rechnet jeweils ein Paar Breiten- und Längengrad Koordinaten um in die entsprechende Luftlinie und die Nord-Süd- bzw. West-Ost-Komponente. Mit den Ergebnissen können t-s und t-v-Diagramme in Abhängigkeit der Himmelsrichtung erstellt werden.</p>
+
+                </div>
+            </section>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+		<!-- Script für weitere Koordinaten-->
+		<script>
+		var x = 2;
+		$(document).ready(function() {
+			var max_fields      = 6;
+			document.getElementById("maxvariabel").innerHTML = max_fields;
+			var wrapper         = $(".container-latlong");
+			var add_button      = $(".add_form_field");
+		 
+			$(add_button).click(function(e){
+				e.preventDefault();
+				if(x < max_fields){
+					x++;
+					$(wrapper).append('<div><div class="form-group row" id="formconv' + x + '"><label for="LatLong' + x + '" class="col-sm-3 col-form-label col-form-label-lg">Koordinate ' + x + '</label><div class="col-sm-7"><input type="text" class="form-control form-control-lg" id="LatLong' + x + '" placeholder="Bsp.: 53.13430292496812, 8.239024619593309"></div></div><a href="#" class="delete">Löschen</a></div>'); //add input box
+				}
+		  else
+		  {
+		  alert('Mal langsam, das reicht jetzt glaube ich schon an Koordinaten')
+		  }
+			});
+		 
+			$(wrapper).on("click",".delete", function(e){
+				e.preventDefault(); $(this).parent('div').remove(); x--;
+			})
+		});
+		</script>
+		
+    </body>
+</html>
