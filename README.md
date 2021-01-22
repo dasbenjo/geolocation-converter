@@ -6,4 +6,4 @@ Small website project: one pager for converting latitude/longitude into distance
 
 Build with Chart.js, jQuery, Bootstrap Framework and the Haversine formula 🚀
 
-Live Website: [https://dasbenjo.github.io/geolocation-converter](https://dasbenjo.github.io/geolocation-converter/)
+Live Website: [dasbenjo.github.io/geolocation-converter](https://dasbenjo.github.io/geolocation-converter/)
