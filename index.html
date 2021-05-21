@@ -288,11 +288,11 @@
 		var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
 		var d = R * c; // Distance in km
 		var seite = (xlat2-xlat1) * 40032 / 360;
-		seite = seite.toFixed(1);
+		seite = seite.toFixed(2);
 		tswert = seite;
 		console.log(tswert);
-		var seiteb = Math.sqrt((Math.pow(d.toFixed(1),2) - Math.pow(seite,2)));
-		seiteb = Math.abs(seiteb).toFixed(1);
+		var seiteb = Math.sqrt((Math.pow(d.toFixed(2),2) - Math.pow(seite,2)));
+		seiteb = Math.abs(seiteb).toFixed(2);
 		tvwert = Number(seiteb);
 		if ( xlon1 > xlon2 ) {
 		tvwert = 0 - tvwert;
