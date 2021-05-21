@@ -298,11 +298,11 @@
 		tvwert = 0 - tvwert;
 		}
 		tvwert = tvwert * 1000;
-		if (d.toFixed(1) == 'NaN') {
+		if (d.toFixed(2) == 'NaN') {
 		$('#results').append('<p>Die Koordinaten der Strecke ' + streckennr + ' sind fehlerhaft!</p>');
 		}
 		else {
-		$('#results').append('<p><b>STRECKE ' + streckennr + ':</b><br>Luftlinie: ' + d.toFixed(1) + ' km <br>Strecke Nord-Süd: ' + seite + ' km <br>Strecke Ost-West: ' + seiteb + ' km</p>');
+		$('#results').append('<p><b>STRECKE ' + streckennr + ':</b><br>Luftlinie: ' + d.toFixed(2) + ' km <br>Strecke Nord-Süd: ' + seite + ' km <br>Strecke Ost-West: ' + seiteb + ' km</p>');
 		}
 		return 0;
 		}
