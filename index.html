@@ -297,12 +297,12 @@
 		if ( xlon1 > xlon2 ) {
 		tvwert = 0 - tvwert;
 		}
-		tvwert = tvwert * 1000 / time;
+		tvwert = tvwert * 1000;
 		if (d.toFixed(1) == 'NaN') {
 		$('#results').append('<p>Die Koordinaten der Strecke ' + streckennr + ' sind fehlerhaft!</p>');
 		}
 		else {
-		$('#results').append('<p><b>STRECKE ' + streckennr + ':</b><br>Luftlinie: ' + d.toFixed(1) + ' km <br>Strecke Nord-Süd: ' + seite + ' km <br>Strecke West-Ost: ' + seiteb + ' km mit der Geschwindigkeit ' + tvwert.toFixed(1) + ' m/s</p>');
+		$('#results').append('<p><b>STRECKE ' + streckennr + ':</b><br>Luftlinie: ' + d.toFixed(1) + ' km <br>Strecke Nord-Süd: ' + seite + ' km <br>Strecke Ost-West: ' + seiteb + ' km mit der Geschwindigkeit ' + tvwert.toFixed(1) + ' m/s</p>');
 		}
 		return 0;
 		}
@@ -364,10 +364,10 @@
 		var axc3 = Number(xc1) + Number(xc2) + Number(xc3);
 		var axc4 = Number(xc1) + Number(xc2) + Number(xc3) + Number(xc4);
 		var axc5 = Number(xc1) + Number(xc2) + Number(xc3) + Number(xc4) + Number(xc5);
-		var ayc2 = Number(yc2);
-		var ayc3 = Number(yc3);
-		var ayc4 = Number(yc4);
-		var ayc5 = Number(yc5);
+		var ayc2 = Number(yc1) + Number(yc2);
+		var ayc3 = Number(yc1) + Number(yc2) + Number(yc3);
+		var ayc4 = Number(yc1) + Number(yc2) + Number(yc3) + Number(yc4);
+		var ayc5 = Number(yc1) + Number(yc2) + Number(yc3) + Number(yc4) + Number(yc5);
 		
 		var xwerte = [0, xc1, axc2, axc3, axc4, axc5];
 		var ywerte = [0, yc1, ayc2, ayc3, ayc4, ayc5];
@@ -382,11 +382,10 @@
 			   type: 'scatter',
 			   data: {
 				  datasets: [{
-					 label: "t-v Diagramm (Ost-Richtung) [m/s / s]",
+					 label: "t-s Diagramm (Ost-Richtung) [m / s]",
 					 data: daten,
 					 fill: false,
 					 tension: 0,
-					 steppedLine: 'after',
 					 showLine: true,
 					 borderColor: "rgba(0,0,0,0.8)",
 					 backgroundColor: "rgba(0,0,0,0.8)",
